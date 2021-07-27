@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useForm from '../../hooks/form.js';
+import './todo.scss';
 
 import { v4 as uuid } from 'uuid';
 
@@ -42,7 +43,7 @@ const ToDo = () => {
 
   return (
     <>
-      <header>
+      <header className="title-bar">
         <h1>To Do List: {incomplete} items pending</h1>
       </header>
 

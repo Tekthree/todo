@@ -1,11 +1,17 @@
-import React from 'react';
+import React from "react";
+import "./app.scss";
+import ToDo from "./components/todo/todo.js";
+import Header from "./components/header/Header.js";
 
-import ToDo from './components/todo/todo.js';
-
-export default class App extends React.Component {
-  render() {
-    return (
-      <ToDo />
-    );
-  }
+function App(props) {
+  return (
+    <>
+      <Header />
+      <div className="container">
+        <ToDo />
+      </div>
+    </>
+  );
 }
+
+export default App;
