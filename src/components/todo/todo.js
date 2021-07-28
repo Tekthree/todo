@@ -1,13 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import useForm from "../../hooks/form.js";
 import "./todo.scss";
-
+import { SettingsContext } from "../../context/Settings.js";
 import { v4 as uuid } from "uuid";
 
 const ToDo = () => {
+  const settings = useContext(SettingsContext);
   const [list, setList] = useState([]);
   const [incomplete, setIncomplete] = useState([]);
+  const [start, setStart] = useState(0);
+  const [end, setEnd] = useState(settings.numberDisplayed);
   const { handleChange, handleSubmit } = useForm(addItem);
+
+
+  
 
   function addItem(item) {
     console.log(item);
@@ -38,6 +44,24 @@ const ToDo = () => {
     document.title = `To Do List: ${incomplete}`;
   }, [list]);
 
+
+  function pagination(){
+    
+    let page = list.slice(start,end);
+    return page;
+  }
+
+  function next(){
+    setStart(start + settings.numberDisplayed);
+    setEnd(end + settings.numberDisplayed);
+  }
+
+  function back(){
+    setStart(start - settings.numberDisplayed);
+    setEnd(end - settings.numberDisplayed);
+  }
+
+  
   return (
     <>
       <header className="title-bar">
@@ -89,7 +113,7 @@ const ToDo = () => {
         </div>
 
         <div className="list-contain">
-          {list.map((item) => (
+          {pagination(0).map((item) => (
             <div className="todo-items" key={item.id}>
               <div className="name-bar">
                 <div className="flex">
@@ -116,6 +140,8 @@ const ToDo = () => {
               </p>
             </div>
           ))}
+          <button onClick={()=>next()}>next</button>
+          <button onClick={()=>back()}>back</button>
         </div>
       </div>
     </>
