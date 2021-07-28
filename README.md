@@ -4,7 +4,7 @@
 
 ## Author: Tek Jones
   * [test report]()
-  * [deployment]()
+  * [deployment lab31](https://codesandbox.io/s/confident-nightingale-irutc)
 
 
 ## About
