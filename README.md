@@ -3,9 +3,11 @@
 
 
 ## Author: Tek Jones
+
+## Deployment and test
   * [test report]()
   * [deployment lab31](https://codesandbox.io/s/confident-nightingale-irutc)
-  * [deployment lab31](https://codesandbox.io/s/confident-nightingale-irutc)
+  * [deployment lab32](https://codesandbox.io/s/gallant-taussig-x0cup)
 
 
 ## About
