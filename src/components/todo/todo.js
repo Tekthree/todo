@@ -12,9 +12,6 @@ const ToDo = () => {
   const [end, setEnd] = useState(settings.numberDisplayed);
   const { handleChange, handleSubmit } = useForm(addItem);
 
-
-  
-
   function addItem(item) {
     console.log(item);
     item.id = uuid();
@@ -44,24 +41,21 @@ const ToDo = () => {
     document.title = `To Do List: ${incomplete}`;
   }, [list]);
 
-
-  function pagination(){
-    
-    let page = list.slice(start,end);
+  function pagination() {
+    let page = list.slice(start, end);
     return page;
   }
 
-  function next(){
+  function next() {
     setStart(start + settings.numberDisplayed);
     setEnd(end + settings.numberDisplayed);
   }
 
-  function back(){
+  function back() {
     setStart(start - settings.numberDisplayed);
     setEnd(end - settings.numberDisplayed);
   }
 
-  
   return (
     <>
       <header className="title-bar">
@@ -75,6 +69,7 @@ const ToDo = () => {
             <label>
               <span>To Do Item</span>
               <input
+                className="todo-input"
                 onChange={handleChange}
                 name="text"
                 type="text"
@@ -85,6 +80,7 @@ const ToDo = () => {
             <label>
               <span>Assigned To</span>
               <input
+                className="todo-input"
                 onChange={handleChange}
                 name="assignee"
                 type="text"
@@ -95,6 +91,7 @@ const ToDo = () => {
             <label>
               <span>Difficulty</span>
               <input
+                className="todo-input"
                 onChange={handleChange}
                 defaultValue={3}
                 type="range"
@@ -140,8 +137,10 @@ const ToDo = () => {
               </p>
             </div>
           ))}
-          <button onClick={()=>next()}>next</button>
-          <button onClick={()=>back()}>back</button>
+          <div>
+            <button onClick={() => back()}>⬅back</button>
+            <button onClick={() => next()}>next➡</button>
+          </div>
         </div>
       </div>
     </>

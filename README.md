@@ -5,6 +5,7 @@
 ## Author: Tek Jones
   * [test report]()
   * [deployment lab31](https://codesandbox.io/s/confident-nightingale-irutc)
+  * [deployment lab31](https://codesandbox.io/s/confident-nightingale-irutc)
 
 
 ## About
@@ -49,3 +50,39 @@
 
 ## UML
 ![UML](./UML-phase1.png)
+
+---
+
+### Phase 2
+- we're going to extend the functionality of our application by allowing the user to make some decisions on how they would like the application to function. Specifically, we'll let them make changes to 2 settings.
+
+### User Stories
+- As a user I would like to have global settings for changing how many to do Items to display at once
+- As a user, I would like to be able to show or not show completed items
+
+### Technical Requirements
+
+Based on global configuration
+
+  - Show a maximum of a certain number of items per screen in the <List /> component
+      - Provide "next" and "previous" links to let the users navigate a long list of items
+  - Hide or show completed items in the list
+  - Optional: Sort the items based on any of the keys (i.e. difficulty)
+
+Implement this using context
+
+  - Create a context for managing application settings and provide this at the application level
+  - Display or Hide completed items (boolean)
+  - Number of items to display per screen (number)
+  - Default sort field (string)
+  - Create a function in your context that saves user preferences (for the above) to local storage
+  - Implement a useEffect() (or componentDidMount()) in your context to read from local storage and set the values for those 2 state properties on application load
+
+Pagination Notes
+
+  - Only display the first n items in the list, where n is the number to display per screen in your context.
+    - If you have more than n items in the list, add a button labeled Next that will replace the list with the next n items in the list.
+    - If you are past the first n items (i.e. on page 2 or higher), add a button labeled Previous that will replace the list with the previous n items in the list.
+
+## UML
+![UML2](./UML-phase2.png)
