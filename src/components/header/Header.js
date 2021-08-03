@@ -1,10 +1,13 @@
 import React from 'react'
 import './header.scss';
+import Login from '../login/Login.js';
+import {Link} from 'react-router-dom';
 
 function Header() {
   return (
     <div className="header">
-      <h2>Home</h2>
+      <Link className="link" to="/">Home</Link>
+      <Login></Login>
     </div>
   )
 }
