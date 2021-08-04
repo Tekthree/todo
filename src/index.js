@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import SettingsProvider from "./context/Settings.js";
+import LoginProvider from "./context/auth.js";
 
 import App from "./app.js";
 
@@ -8,9 +9,11 @@ class Main extends React.Component {
   render() {
     return (
       <>
-        <SettingsProvider>
-          <App />
-        </SettingsProvider>
+        <LoginProvider>
+          <SettingsProvider>
+            <App />
+          </SettingsProvider>
+        </LoginProvider>
       </>
     );
   }
