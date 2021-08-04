@@ -8,6 +8,7 @@
   * [test report]()
   * [deployment lab31](https://codesandbox.io/s/confident-nightingale-irutc)
   * [deployment lab32](https://codesandbox.io/s/gallant-taussig-x0cup)
+  *  [deployment lab33](https://codesandbox.io/s/crazy-wildflower-dkcps)
 
 
 ## About
