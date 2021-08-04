@@ -88,3 +88,37 @@ Pagination Notes
 
 ## UML
 ![UML2](./UML-phase2.png)
+
+
+### Phase 3
+- Extend the functionality of the application by requiring users be logged in to view items and also restrict access based on user type. The user stories from Phases 1, and 2 remain unchanged. For this phase, we are now adding the following new user stories.
+
+### User Stories
+- As a user, I want to provide a way for other users to create new accounts
+- As a user, I want to provide a way for all users to login to their account
+- As a user, I want to make sure that my To Do items are only viewable to users that have logged in with a valid account.
+- As a user, I want to ensure that only fellow users that are allowed to "create", based on their user type, can add new To Do Items
+- As a user, I want to ensure that only fellow users that are allowed to "update", based on their user type, can mark To Do Items complete
+- As a user, I want to ensure that only fellow users that are allowed to "delete", based on their user type, can delete new To Do Items
+
+### Technical Requirements
+
+- Provide an account login screen
+   - Accepts Username and Password
+   - On successful login, store the token as a cookie
+- If a user returns and has a valid login cookie, bypass the login screen and consider them "Logged In"
+
+Using Login/Auth Context, "protect" the To Do application by restricting access to the various application features based on the users' login status and capabilities.
+
+- Implement <Login /> and <Auth /> components with Context
+- Link to the Login screen in your main menu
+   - Hide the entire interface until the user has logged in.
+   - Implement the following RBAC rules:
+     - Logged In Users with 'read' permissions can see the summary/count
+     - Logged In Users with 'read' permissions can see the list of To Do Items
+     - Logged In Users with 'update' permissions can click the records to mark them as complete
+     - Logged In Users with 'create' permissions can create new items
+     - Logged In Users with 'delete' permissions can delete items
+
+## UML
+![UML2](./UML-phase3.png)

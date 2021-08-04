@@ -125,8 +125,8 @@ const ToDo = () => {
                   <h6 className="name">{item.assignee}</h6>
                 </div>
                 <div id="mdiv">
-                  <div class="mdiv">
-                    <div class="md"></div>
+                  <div className="mdiv">
+                    <div className="md"></div>
                   </div>
                 </div>
               </div>
